@@ -22,5 +22,11 @@
       "reviews": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
       "name": "adam swift",
       "rating": 5
+    },
+    {
+      "_id": "626d6e264dff75a715ebc4cc",
+      "reviews": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "tailor pit",
+      "rating": 4.5
     }
 ]

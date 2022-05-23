@@ -8,7 +8,7 @@ const Review = ({review}) => {
         <p className="italic">"{reviews}" </p>
         <span class="inline-block h-1 w-10 rounded bg-secondary m-5"></span>
         <h2 className="card-title uppercase ">{name}</h2>
-        <p>Rating : {rating}/5</p>
+        <p>Ratings : {rating}/5</p>
       </div>
     </div>
   );
