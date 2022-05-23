@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({product}) => {
-    const {name, image, price, description, minquantity, quantity } = product;
+    const { _id, name, image, price, description, minquantity, quantity } = product;
+    const navigate = useNavigate();
   return (
     <div className="card lg:max-w-lg bg-base-100 shadow-xl mb-20">
       <figure className="px-10 pt-10">
@@ -16,7 +18,7 @@ const Product = ({product}) => {
         </div>
         <div className="flex">
             <span class="title-font font-medium text-2xl text-gray-900">${price}.00</span>
-            <button class="flex ml-auto btn btn-primary hover:bg-neutral">Order Now</button>
+            <button onClick={()=>navigate(`/purchase/${_id}`)} class="flex ml-auto btn btn-primary hover:bg-neutral">Order Now</button>
         </div>
       </div>
     </div>

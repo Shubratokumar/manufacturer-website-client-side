@@ -1,23 +1,52 @@
 import React from "react";
-import { GiGears } from 'react-icons/gi';
+import { GiGears } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
+import auth from './../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+    const logout = () =>{
+      signOut(auth);
+      // localStorage.removeItem('accessToken');
+    }
   const menuItems = (
-      <>
+    <>
+      <li>
+        <NavLink className="rounded-lg" to="/">
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="rounded-lg" to="/">
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="rounded-lg" to="/myprofile">
+          My Profile
+        </NavLink>
+      </li>
+      {user?.uid && (
         <li>
-            <NavLink className='rounded-lg' to="/">Home</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
-        <li>
-            <NavLink className='rounded-lg' to="/about">About</NavLink>
-        </li>
-        <li>
-            <NavLink className='rounded-lg' to="/services">Services</NavLink>
-        </li>
-        <li>
-            <NavLink className='rounded-lg' to="/contact">Contact</NavLink>
-        </li>
-      </>
+      )}
+      <li>
+        {user?.uid ? (
+          <NavLink
+            onClick={logout}
+            className="btn btn-primary text-white"
+            to="/login"
+          >
+            Sign Out
+          </NavLink>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
+      </li>
+    </>
   );
   return (
     <div class="navbar bg-base-100 shadow z-20 sticky top-0 lg:px-20">
@@ -47,13 +76,11 @@ const Navbar = () => {
           </ul>
         </div>
         <p class="normal-case text-primary">
-            <GiGears className="text-5xl"/>
+          <GiGears className="text-5xl" />
         </p>
       </div>
       <div class="navbar-end hidden lg:flex">
-        <ul class="menu menu-horizontal p-0 gap-x-2">
-            {menuItems}
-        </ul>
+        <ul class="menu menu-horizontal p-0 gap-x-2">{menuItems}</ul>
       </div>
     </div>
   );
