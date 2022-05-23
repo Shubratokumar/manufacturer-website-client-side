@@ -4,6 +4,7 @@ import Footer from './../Shared/Footer';
 import Feedback from './Feedback';
 import BusinessSummery from './BusinessSummery';
 import Products from './Products';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner/>
             <Products/>
             <BusinessSummery/>
+            <Reviews/>
             <Feedback/>
             <Footer/>
         </div>
