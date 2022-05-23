@@ -1,0 +1,65 @@
+[
+    {
+      "_id": "626d6e265f2c59def3174f26",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Ram",
+      "price": 1699,
+      "quantity": 9,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/MBSy3Mb/ram.png"
+    },
+    {
+      "_id": "626d6e26e02e356f32666e50",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Mouse",
+      "price": 999,
+      "quantity": 15,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/ts99Cd6/mouse.png"
+    },
+    {
+      "_id": "626d6e261f68ac29279a82f3",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Hard Disk",
+      "price": 699,
+      "quantity": 22,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/qFqh9Yx/hard-disk.png"
+    },
+    {
+      "_id": "626d6e264dff75a715ebc4cc",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Mother Board",
+      "price": 200,
+      "quantity": 30,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/dBXTXw8/mother-board.png"
+    },
+    {
+      "_id": "626d6e26949411ac78aff299",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Keyboard",
+      "price": 400,
+      "quantity": 15,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/KwsHgHc/keyboard.png"
+    },
+    {
+      "_id": "626d6e268d0941cdc64e9ce6",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Cooling Fan",
+      "price": 399,
+      "quantity": 40,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/5x9kdYw/cooling-fan.png"
+    },
+    {
+      "_id": "626d6e268d0941cdc64e9ce6",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "name": "Processor",
+      "price": 399,
+      "quantity": 40,
+      "minquantity": 100,
+      "image": "https://i.ibb.co/5Wgc46J/processor.png"
+    }
+  ]

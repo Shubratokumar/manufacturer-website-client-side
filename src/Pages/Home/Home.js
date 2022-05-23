@@ -1,16 +1,18 @@
 import React from 'react';
 import Banner from './Banner';
 import Footer from './../Shared/Footer';
-import Contact from './Contact';
+import Feedback from './Feedback';
 import BusinessSummery from './BusinessSummery';
+import Products from './Products';
 
 const Home = () => {
     return (
             // className='lg:px-20'
         <div>
             <Banner/>
+            <Products/>
             <BusinessSummery/>
-            <Contact/>
+            <Feedback/>
             <Footer/>
         </div>
     );
