@@ -20,7 +20,7 @@ const Navbar = () => {
       </>
   );
   return (
-    <div class="navbar bg-base-100 shadow z-10 sticky top-0 lg:px-20">
+    <div class="navbar bg-base-100 shadow z-20 sticky top-0 lg:px-20">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
