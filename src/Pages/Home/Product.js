@@ -12,7 +12,8 @@ const Product = ({product}) => {
       <div className="card-body ">
         <h2 className="card-title">{name}</h2>
         <div className="text-left">
-            <p>{description.slice(0,30)}</p>
+            <p className="italic py-3 text-xl">{description.slice(0,100)} ...</p>
+            <hr />
             <p>Available In Stock : <span className="text-primary">{quantity}</span> </p>
             <p>Minimum Order : <span className="text-primary">{minquantity}</span> </p>
         </div>

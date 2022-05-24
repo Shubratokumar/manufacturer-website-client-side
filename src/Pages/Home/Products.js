@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Product from './Product';
-// import { useQuery } from 'react-query';
+import useProducts from './../../hooks/useProducts';
 
 const Products = () => {
-    const [ products, setProducts ] = useState ([])
+    const [ products ] = useProducts();
 
-    /* const {data: products} = useQuery("products", ()=>
-        fetch("products.json").then(res => res.json())
-    ) */
-    useEffect(()=>{
-        fetch("products.json")
-        .then(res=> res.json())
-        .then(data => setProducts(data))
-    }, [])
     return (
         <section className='bg-blue-50 p-12'>
             <div className="text-center mb-10">

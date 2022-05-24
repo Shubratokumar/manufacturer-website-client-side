@@ -133,7 +133,7 @@ const Login = () => {
             <button onClick={resetPassword} className="btn btn-link text-xs font-normal text-secondary">Reset Password</button></p>
           <p className="text-sm text-center">New to Universal Electronics ? <Link to="/signup"><span className="text-info">Create New Account</span></Link></p>
           <div className="divider">OR</div>
-          <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-primary ">
+          <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-primary">
             CONTINUE WITH GOOGLE
           </button>
           </div>

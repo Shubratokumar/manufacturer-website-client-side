@@ -18,11 +18,11 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink className="rounded-lg" to="/">
           Dashboard
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink className="rounded-lg" to="/myprofile">
           My Profile
@@ -30,14 +30,14 @@ const Navbar = () => {
       </li>
       {user?.uid && (
         <li>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink>
         </li>
       )}
       <li>
         {user?.uid ? (
           <NavLink
             onClick={logout}
-            className="btn btn-primary text-white"
+            className="btn btn-outline btn-primary text-white"
             to="/login"
           >
             Sign Out

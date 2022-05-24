@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Review from './Review';
+import { useQuery } from 'react-query';
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([]);
-    useEffect(()=>{
-        fetch('reviews.json')
-        .then(res => res.json())
-        .then(data => setReviews(data))
-    },[])
+    const {data: reviews} = useQuery("reviews", ()=>
+        fetch("http://localhost:5000/reviews",{
+            method: "GET",
+        }).then(res => res.json())
+    )
     return (
         <section className='bg-blue-50 p-12'>
             <div className="text-center mb-20">

@@ -1,65 +1,65 @@
 [
     {
       "_id": "626d6e265f2c59def3174f26",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "Random access memory (RAM) is the best-known form of computer memory. This is what allows your computer to surf the internet and then quickly switch to loading an application or editing a document. RAM is considered 'random access' because you can access any memory cell directly if you know the row and column that intersect at that cell.",
       "name": "Ram",
-      "price": 1699,
-      "quantity": 9,
-      "minquantity": 100,
+      "price": 169,
+      "quantity": 1500,
+      "minquantity": 50,
       "image": "https://i.ibb.co/MBSy3Mb/ram.png"
     },
     {
       "_id": "626d6e26e02e356f32666e50",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "A computer mouse  is a hand-held pointing device that detects two-dimensional motion relative to a surface. This motion is typically translated into the motion of a pointer on a display, which allows a smooth control of the graphical user interface of a computer.",
       "name": "Mouse",
-      "price": 999,
-      "quantity": 15,
+      "price": 59,
+      "quantity": 1100,
       "minquantity": 100,
       "image": "https://i.ibb.co/ts99Cd6/mouse.png"
     },
     {
       "_id": "626d6e261f68ac29279a82f3",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "A computer hard disk drive (HDD) is a non-volatile data storage device. Non-volatile refers to storage devices that maintain stored data when turned off. All computers need a storage device, and HDDs are just one example of a type of storage device.",
       "name": "Hard Disk",
-      "price": 699,
-      "quantity": 22,
-      "minquantity": 100,
+      "price": 499,
+      "quantity": 220,
+      "minquantity": 50,
       "image": "https://i.ibb.co/qFqh9Yx/hard-disk.png"
     },
     {
       "_id": "626d6e264dff75a715ebc4cc",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "The motherboard is the backbone that ties the computer's components together at one spot and allows them to talk to each other. Without it, none of the computer pieces, such as the CPU, GPU, or hard drive, could interact. Total motherboard functionality is necessary for a computer to work well.",
       "name": "Mother Board",
-      "price": 200,
-      "quantity": 30,
-      "minquantity": 100,
+      "price": 700,
+      "quantity": 300,
+      "minquantity": 30,
       "image": "https://i.ibb.co/dBXTXw8/mother-board.png"
     },
     {
       "_id": "626d6e26949411ac78aff299",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "A computer keyboard is an input device used to enter characters and functions into the computer system by pressing buttons, or keys. It is the primary device used to enter text. A keyboard typically contains keys for individual letters, numbers and special characters, as well as keys for specific functions.",
       "name": "Keyboard",
-      "price": 400,
-      "quantity": 15,
-      "minquantity": 100,
+      "price": 200,
+      "quantity": 1500,
+      "minquantity": 50,
       "image": "https://i.ibb.co/KwsHgHc/keyboard.png"
     },
     {
       "_id": "626d6e268d0941cdc64e9ce6",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "A computer fan is any fan inside, or attached to, a computer case used for active cooling. Fans are used to draw cooler air into the case from the outside, expel warm air from inside and move air across a heat sink to cool a particular component. Both axial and sometimes centrifugal (blower/squirrel-cage) fans are used in computers. Computer fans commonly come in standard sizes, such as 92 mm, 120 mm (most common), 140 mm, and even 200-220 mm. Computer fans are powered and controlled using 3-pin or 4-pin fan connectors.",
       "name": "Cooling Fan",
-      "price": 399,
-      "quantity": 40,
+      "price": 99,
+      "quantity": 1300,
       "minquantity": 100,
       "image": "https://i.ibb.co/5x9kdYw/cooling-fan.png"
     },
     {
       "_id": "626d6e268d0941cdc64e9ce6",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptate eveniet dicta error velit, nobis amet libero! Omnis distinctio, explicabo ut, dolor, dignissimos cupiditate cumque ullam enim corporis asperiores totam.",
+      "description": "The processor, also known as the CPU, provides the instructions and processing power the computer needs to do its work. The more powerful and updated your processor, the faster your computer can complete its tasks. By getting a more powerful processor, you can help your computer think and work faster.",
       "name": "Processor",
-      "price": 399,
-      "quantity": 40,
-      "minquantity": 100,
+      "price": 299,
+      "quantity": 1400,
+      "minquantity": 60,
       "image": "https://i.ibb.co/5Wgc46J/processor.png"
     }
   ]

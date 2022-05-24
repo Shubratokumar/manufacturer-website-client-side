@@ -9,6 +9,7 @@ import MyProfile from './Pages/MyProfile/MyProfile';
 import Footer from './Pages/Shared/Footer';
 import { Toaster } from 'react-hot-toast';
 import RequireAuth from './Pages/Login/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
             <Purchase/>
           </RequireAuth>
         }/>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='myprofile' element={<MyProfile/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='signup' element={<SignUp/>}/>
