@@ -23,7 +23,26 @@ const Purchase = () => {
 
     if(inputQuantity >= minquantity && inputQuantity <= quantity ){
       const newQuantity = Number(quantity) - Number(inputQuantity);
-      const newProduct = {...rest, quantity: newQuantity};
+      const newProduct = {
+        ...rest, 
+        quantity: newQuantity,
+        orderQuantity : quantity,
+        userName : user?.displayName,
+        userEmail : user?.email,
+        phoneNumber : data.number,
+      };
+      const orders = {
+        name,
+        price,
+        image,
+        description,
+        minquantity,
+        orderQuantity : inputQuantity,
+        userName : user?.displayName,
+        userEmail : user?.email,
+        phoneNumber : data.number,
+
+      } 
       setProduct(newProduct);
       const url = `http://localhost:5000/products/${id}`;
       fetch(url, {
@@ -34,10 +53,25 @@ const Purchase = () => {
         body: JSON.stringify(newProduct),
       })
         .then((res) => res.json())
-        .then((data) => {
+        .then((result) => {
         });
+      // order 
+      fetch(`http://localhost:5000/order`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(orders),
+      })
+        .then((res) => res.json())
+        .then((results) => {
+          if(results?.insertedId){
+            toast.success(`Your order for ${name} is confirmed. Total ${data.quantity} pieces.`)
+          }
+        });
+
     } else if( inputQuantity < minquantity){
-      toast.error("Your Order quantity can not be less than min qunantiry.")
+      toast.error(`You can not order less than ${minquantity} pieces.`)
     } else if( inputQuantity > quantity){
       toast.error("You can not order more than available quantity.")
     }
@@ -70,6 +104,9 @@ const Purchase = () => {
             <div className="form-control w-full max-w-md py-2">
               <input
                 {...register("name")}
+                name="name"
+                type="text"
+                disabled
                 value={user?.displayName}
                 className="input input-bordered w-full max-w-xs"
               />
@@ -77,6 +114,9 @@ const Purchase = () => {
             <div className="form-control w-full max-w-xs ">
               <input
                 {...register("email")}
+                name="email"
+                type="email"
+                disabled
                 value={user?.email}
                 className="input input-bordered w-full max-w-xs"
               />
@@ -85,6 +125,7 @@ const Purchase = () => {
               <input
                 {...register("address")}
                 type="text"
+                name="address"
                 placeholder="Your Address"
                 className="input input-bordered w-full max-w-xs"
               />
@@ -93,6 +134,7 @@ const Purchase = () => {
               <input
                 {...register("number")}
                 type="number"
+                name="number"
                 placeholder="Phone Number"
                 className="input input-bordered w-full max-w-xs"
               />
@@ -102,7 +144,7 @@ const Purchase = () => {
                 {...register("quantity")}
                 type="number"
                 name="quantity"
-                placeholder="Quantity"
+                placeholder={`Minimum order : ${minquantity}`}
                 className="input input-bordered w-full max-w-xs"
               />
             </div>

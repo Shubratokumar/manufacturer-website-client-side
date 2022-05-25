@@ -5,6 +5,7 @@ import auth from './../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import { AiOutlineMenuFold } from 'react-icons/ai';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
@@ -95,6 +96,11 @@ const Navbar = () => {
       </div>
       <div class="navbar-end hidden lg:flex">
         <ul class="menu menu-horizontal p-0 gap-x-2">{menuItems}</ul>
+      </div>
+      <div className="navbar-end lg:hidden">
+        <label htmlFor="dashboard-slider" className="btn btn-ghost  drawer-button text-xl">
+          <AiOutlineMenuFold/>
+        </label>
       </div>
     </div>
   );
