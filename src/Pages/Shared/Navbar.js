@@ -4,11 +4,19 @@ import { NavLink } from "react-router-dom";
 import auth from './../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
     const logout = () =>{
       signOut(auth);
+      toast.success("Successfully Logout!!!", {
+        duration: 3000,
+        style: {
+          background: "black",
+          color: "white",
+        },
+      });
       // localStorage.removeItem('accessToken');
     }
   const menuItems = (
@@ -18,20 +26,26 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink className="rounded-lg" to="/">
-          Dashboard
-        </NavLink>
-      </li> */}
       <li>
-        <NavLink className="rounded-lg" to="/myprofile">
-          My Profile
+        <NavLink className="rounded-lg" to="/blogs">
+          Blogs
         </NavLink>
       </li>
-      {user?.uid && (
-        <li>
-          <NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink>
-        </li>
+      {user?.uid && (<>
+            <li>
+              <NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink>
+            </li>
+            <li>
+              <NavLink className="rounded-lg" to="/myprofile">
+                My Profile
+              </NavLink>
+            </li>
+            <li>
+                <p className="  px-2" to="">
+                  {user?.displayName ? user?.displayName : ""}
+                </p>
+            </li>
+      </>
       )}
       <li>
         {user?.uid ? (
