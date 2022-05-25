@@ -18,7 +18,7 @@ const Navbar = () => {
           color: "white",
         },
       });
-      // localStorage.removeItem('accessToken');
+      localStorage.removeItem('accessToken');
     }
   const menuItems = (
     <>
@@ -37,8 +37,8 @@ const Navbar = () => {
               <NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink>
             </li>
             <li>
-              <NavLink className="rounded-lg" to="/myprofile">
-                My Profile
+              <NavLink className="rounded-lg" to="/portfolio">
+                My Portfolio
               </NavLink>
             </li>
             <li>

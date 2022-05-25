@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link as NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -14,15 +14,9 @@ const Dashboard = () => {
                 <label htmlFor="dashboard-slider" className="drawer-overlay"></label> 
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <li><Link to="/dashboard">My Orders</Link></li>
-                    <li><Link to="/dashboard/review">Add a Reviews</Link></li>
-                    <li><Link to="/dashboard/history">My Profile</Link></li>
-                    {/* { admin && 
-                    <>
-                        <li><Link to="/dashboard/users">All Users</Link></li>
-                        <li><Link to="/dashboard/addDoctor">Add a Doctor</Link></li>
-                        <li><Link to="/dashboard/manageDoctor">Manage Doctors</Link></li>
-                    </>} */}
+                    <li><NavLink to="/dashboard">My Orders</NavLink></li>
+                    <li><NavLink to="/dashboard/review">Add a Reviews</NavLink></li>
+                    <li><NavLink to="/dashboard/profile">My Profile</NavLink></li>
                 </ul>
             
             </div>
