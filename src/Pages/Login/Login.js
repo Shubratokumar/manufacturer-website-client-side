@@ -6,6 +6,7 @@ import auth from './../../firebase.init';
 import Loading from './../Shared/Loading';
 import toast from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
+import useToken from './../../hooks/useToken';
 
 const Login = () => {
     const [ email,setEmail ] = useState(" ");
@@ -18,6 +19,8 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || gUser);
+
     const navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -26,7 +29,7 @@ const Login = () => {
         setEmail(e.target.vaule);
     }
     
-    if(user || gUser){
+    if(token){
         navigate(from, { replace: true });
     }
 
@@ -40,7 +43,6 @@ const Login = () => {
     
       }
     const onSubmit = data =>{
-        console.log(data);
         signInWithEmailAndPassword(data.email, data.password)
 
     } 
