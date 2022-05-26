@@ -74,6 +74,7 @@ const MyOrders = () => {
                       </div>
                     )}
                   </td>
+                  <td>{<button className="btn btn-xs btn-error">Cancel Order</button>}</td>
                 </tr>
               </>
             ))}
