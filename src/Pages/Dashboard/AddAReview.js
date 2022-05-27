@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "./../../firebase.init";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 
 const AddAReview = () => {
   const [user] = useAuthState(auth);
@@ -14,38 +14,36 @@ const AddAReview = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-      const maxRating = 5;
-      const minRating = -5;
-      const inputRating = data?.rating;
-      const review = {
-        name : data.name,
-        reviews : data.reviews,
-        rating : inputRating ,
-      };
+    const maxRating = 5;
+    const minRating = -5;
+    const inputRating = data?.rating;
+    const review = {
+      name: data.name,
+      reviews: data.reviews,
+      rating: inputRating,
+    };
 
-    if(inputRating >= minRating && inputRating <= maxRating ){
-        fetch(`http://localhost:5000/reviews`, {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify(review),
-          })
-            .then((res) => res.json())
-            .then((results) => {
-              if(results?.insertedId){
-                toast.success(`Thanks for giving reviews.`);
-                reset();
-              }
-            });
-    } else if(inputRating <= minRating){
-        toast.error("You cannot give bellow -5 rating out of 5.")
-    } else if(inputRating >= maxRating){
-        toast.error("You cannot give more than 5 rating out of 5.")
+    if (inputRating >= minRating && inputRating <= maxRating) {
+      fetch(`http://localhost:5000/reviews`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(review),
+      })
+        .then((res) => res.json())
+        .then((results) => {
+          if (results?.insertedId) {
+            toast.success(`Thanks for giving reviews.`);
+            reset();
+          }
+        });
+    } else if (inputRating <= minRating) {
+      toast.error("You cannot give bellow -5 rating out of 5.");
+    } else if (inputRating >= maxRating) {
+      toast.error("You cannot give more than 5 rating out of 5.");
     }
-    
-    
   };
   return (
     <div class="h-screen p-3">

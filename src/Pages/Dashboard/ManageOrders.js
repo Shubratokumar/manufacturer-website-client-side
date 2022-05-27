@@ -30,7 +30,6 @@ const ManageOrders = () => {
               <th>Price (each)</th>
               <th>User Name</th>
               <th>Email</th>
-              <th>Address</th>
               <th>Contact Number</th>
               <th>Payment Status</th>
               <th>Product Status</th>
@@ -39,7 +38,7 @@ const ManageOrders = () => {
           <tbody>
             {orders?.map((order, index) => (
               <OrdersRow
-              product={order}
+              order={order}
               key={order._id}
               index={index}
               refetch={refetch}
