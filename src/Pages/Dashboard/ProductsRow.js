@@ -1,25 +1,9 @@
 import React from "react";
-import { toast } from 'react-hot-toast';
 
-const ProductsRow = ({ product, index , refetch}) => {
-  const { _id,  name, image, price, quantity } = product;
+const ProductsRow = ({ product, index, setDeleteProduct}) => {
+  const { name, image, price, quantity } = product;
 
-  const handleDelete = id =>{
-      fetch(`http://localhost:5000/products/${id}`, {
-          method : "DELETE"
-      })
-      .then(res => res.json())
-      .then(data =>{
-          console.log(data)
-          if(data?.deletedCount){
-              toast.success(`Delete ${name} successfully.`)
-              refetch()
-          } else{
-              toast.error("Failed to delete.")
-          }
-      })
-
-  }
+  
   return (
     <>
       <tr className="hover">
@@ -35,7 +19,7 @@ const ProductsRow = ({ product, index , refetch}) => {
         <td>$ {price}</td>
         <td>{quantity}</td>
         <td>
-          {<button onClick={()=>handleDelete(_id)} className="btn btn-xs btn-error">Remove Product</button>}
+          {<label onClick={()=>setDeleteProduct(product)} for="delete-confirm-modal" className="btn modal-button btn-xs btn-error" >Remove Product</label>}
         </td>
       </tr>
     </>

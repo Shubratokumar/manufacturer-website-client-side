@@ -1,22 +1,29 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import Loading from './../Shared/Loading';
-import UsersRow from './UsersRow';
+import React, {useState} from "react";
+import { useQuery } from "react-query";
+import Loading from "./../Shared/Loading";
+import UsersRow from "./UsersRow";
+import DeleteUserModal from './DeleteUserModal';
 
 const Users = () => {
-    const { data : users, refetch, isLoading } = useQuery( 'users', ()=> 
-    fetch('http://localhost:5000/user',{
-        headers: {
-            method: "GET",
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-    }).then(res=>res.json()));
-    if(isLoading){
-        return <Loading/>
-    }
-    return (
-        <div>
-            <div className="overflow-x-auto">
+  const [deleteUser, setDeleteUser] = useState(null);
+  const {
+    data: users,
+    refetch,
+    isLoading,
+  } = useQuery("users", () =>
+    fetch("http://localhost:5000/user", {
+      headers: {
+        method: "GET",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading />;
+  }
+  return (
+    <div>
+      <div className="overflow-x-auto">
         <table className="table table-normal w-full">
           <thead>
             <tr>
@@ -33,14 +40,21 @@ const Users = () => {
                 user={user}
                 key={user._id}
                 index={index}
-                refetch={refetch}
+                setDeleteUser={setDeleteUser}
               ></UsersRow>
             ))}
           </tbody>
         </table>
       </div>
-        </div>
-    );
+      {
+        deleteUser && <DeleteUserModal
+        deleteUser={deleteUser}
+        setDeleteUser={setDeleteUser}
+        refetch={refetch}
+        ></DeleteUserModal>
+      }
+    </div>
+  );
 };
 
 export default Users;

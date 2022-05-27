@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from 'react-hot-toast';
 
-const UsersRow = ({ user, index, refetch }) => {
+const UsersRow = ({ user, index, refetch, setDeleteUser }) => {
   const { email, name, role } = user;
 
   const makeAdmin = () =>{
@@ -36,7 +36,7 @@ const UsersRow = ({ user, index, refetch }) => {
           </button>
         ) : <button className="btn btn-xs btn-success">Admin</button> }
       </td>
-      <td>{<button className="btn btn-xs btn-error">Remove User</button>}</td>
+      <td>{<label  onClick={()=>setDeleteUser(user)}  for="delete-user-modal" className="btn modal-button btn-xs btn-error">Remove User</label>}</td>
     </tr>
   );
 };
