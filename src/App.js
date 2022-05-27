@@ -16,6 +16,9 @@ import BLogs from "./Pages/Blogs/BLogs";
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
+import AddProduct from './Pages/Dashboard/AddProduct';
+import ManageProducts from './Pages/Dashboard/ManageProducts';
+import ManageOrders from './Pages/Dashboard/ManageOrders';
 
 function App() {
   return (
@@ -41,13 +44,32 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders />} />
+          <Route index element={<MyProfile/>} />
+          <Route path="orders" element={<MyOrders />} />
           <Route path="profile" element={<MyProfile/>} />
           <Route path="review" element={<AddAReview />} />
           <Route path="users" 
           element={
             <RequireAdmin>
               <Users/>
+            </RequireAdmin>
+          } />
+          <Route path="addproduct" 
+          element={
+            <RequireAdmin>
+              <AddProduct/>
+            </RequireAdmin>
+          } />
+          <Route path="manageproducts" 
+          element={
+            <RequireAdmin>
+              <ManageProducts/>
+            </RequireAdmin>
+          } />
+          <Route path="manageorders" 
+          element={
+            <RequireAdmin>
+              <ManageOrders/>
             </RequireAdmin>
           } />
         </Route>

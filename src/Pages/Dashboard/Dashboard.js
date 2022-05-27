@@ -21,13 +21,16 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     { 
                         !admin && <>
-                            <li><NavLink to="/dashboard">My Orders</NavLink></li>
+                            <li><NavLink to="/dashboard/orders">My Orders</NavLink></li>
                             <li><NavLink to="/dashboard/review">Add a Reviews</NavLink></li>
                         </>
                     }
                     {
                         admin && <>
-                            <li><NavLink to="/dashboard/users">All Users</NavLink></li>
+                            <li><NavLink to="/dashboard/users">Manage all Users</NavLink></li>
+                            <li><NavLink to="/dashboard/addproduct">Add Product</NavLink></li>
+                            <li><NavLink to="/dashboard/manageproducts">Manage Products</NavLink></li>
+                            <li><NavLink to="/dashboard/manageorders">Manage Orders</NavLink></li>
                         </>
                     }
                     <li><NavLink to="/dashboard/profile">My Profile</NavLink></li>
