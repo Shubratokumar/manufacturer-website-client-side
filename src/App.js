@@ -15,6 +15,7 @@ import AddAReview from "./Pages/Dashboard/AddAReview";
 import BLogs from "./Pages/Blogs/BLogs";
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Users from './Pages/Dashboard/Users';
+import RequireAdmin from './Pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -43,7 +44,12 @@ function App() {
           <Route index element={<MyOrders />} />
           <Route path="profile" element={<MyProfile/>} />
           <Route path="review" element={<AddAReview />} />
-          <Route path="users" element={<Users/>} />
+          <Route path="users" 
+          element={
+            <RequireAdmin>
+              <Users/>
+            </RequireAdmin>
+          } />
         </Route>
         <Route path="portfolio" element={<MyPortfolio />} />
         <Route path="login" element={<Login />} />
