@@ -24,7 +24,7 @@ const AddAReview = () => {
     };
 
     if (inputRating >= minRating && inputRating <= maxRating) {
-      fetch(`http://localhost:5000/reviews`, {
+      fetch(`https://glacial-bayou-51669.herokuapp.com/reviews`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

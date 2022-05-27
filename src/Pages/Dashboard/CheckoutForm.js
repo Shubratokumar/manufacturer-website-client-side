@@ -1,13 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Loading from './../Shared/Loading';
+import Loading from "./../Shared/Loading";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState(" ");
-  const [ transactionId, setTransactionId] = useState(" ");
+  const [transactionId, setTransactionId] = useState(" ");
   const [cardSuccess, setCardSuccess] = useState(" ");
   const [loading, setLoading] = useState(false);
   const [clientSecret, setClientSecret] = useState(" ");
@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
   const { _id, price, userName, userEmail } = order;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/create-payment-intent`, {
+    fetch(`https://glacial-bayou-51669.herokuapp.com/create-payment-intent`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -31,8 +31,8 @@ const CheckoutForm = ({ order }) => {
       });
   }, [price]);
 
-  if(loading){
-      return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
 
   const handleSubmit = async (event) => {
@@ -62,7 +62,7 @@ const CheckoutForm = ({ order }) => {
       console.log("[PaymentMethod]", paymentMethod);
     }
 
-    setCardSuccess(' ');
+    setCardSuccess(" ");
     setLoading(true);
 
     //   confirm card payment
@@ -76,35 +76,34 @@ const CheckoutForm = ({ order }) => {
           },
         },
       });
-      if(intentError){
-          setCardError(intentError?.message);
+    if (intentError) {
+      setCardError(intentError?.message);
+      setLoading(false);
+    } else {
+      setCardError(" ");
+      setTransactionId(paymentIntent?.id);
+      setCardSuccess("Congrats! Payment done.");
+
+      //   update order
+      const payment = {
+        order: _id,
+        transactionId: paymentIntent?.id,
+      };
+      const url = `https://glacial-bayou-51669.herokuapp.com/order/${_id}`;
+      fetch(url, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
           setLoading(false);
-      } else {
-          setCardError(" ");
-          setTransactionId(paymentIntent?.id);
-          setCardSuccess("Congrats! Payment done.");
-
-        //   update order
-            const payment = {
-                order : _id,
-                transactionId : paymentIntent?.id,
-            }
-            const url = `http://localhost:5000/order/${_id}`;
-            fetch(url,{
-                method: "PATCH",
-                headers: {
-                    "content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                },
-                body: JSON.stringify(payment),
-
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setLoading(false);
-            })
-      }
+        });
+    }
   };
 
   return (
@@ -133,10 +132,12 @@ const CheckoutForm = ({ order }) => {
         Pay
       </button>
       {cardError && <p className="text-error">{cardError}</p>}
-      {cardSuccess && <div>
-        <p className="text-success">{cardSuccess}</p>
-        <p className="text-success"> {transactionId}</p>
-      </div>}
+      {cardSuccess && (
+        <div>
+          <p className="text-success">{cardSuccess}</p>
+          <p className="text-success"> {transactionId}</p>
+        </div>
+      )}
     </form>
   );
 };

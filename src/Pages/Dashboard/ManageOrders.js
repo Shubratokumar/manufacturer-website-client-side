@@ -1,11 +1,15 @@
-import React from 'react';
-import OrdersRow from './OrdersRow';
-import Loading from './../Shared/Loading';
-import { useQuery } from 'react-query';
+import React from "react";
+import OrdersRow from "./OrdersRow";
+import Loading from "./../Shared/Loading";
+import { useQuery } from "react-query";
 
 const ManageOrders = () => {
-    const {data : orders , refetch, isLoading } = useQuery("orders", () =>
-    fetch("http://localhost:5000/orders", {
+  const {
+    data: orders,
+    refetch,
+    isLoading,
+  } = useQuery("orders", () =>
+    fetch("https://glacial-bayou-51669.herokuapp.com/orders", {
       headers: {
         method: "GET",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -15,8 +19,8 @@ const ManageOrders = () => {
   if (isLoading) {
     return <Loading />;
   }
-    return (
-        <div className="mb-3">
+  return (
+    <div className="mb-3">
       <h3 className="text-2xl text-center font-semibold text-secondary mb-2">
         Manage Products
       </h3>
@@ -38,18 +42,17 @@ const ManageOrders = () => {
           <tbody>
             {orders?.map((order, index) => (
               <OrdersRow
-              order={order}
-              key={order._id}
-              index={index}
-              refetch={refetch}
-              >
-              </OrdersRow>
+                order={order}
+                key={order._id}
+                index={index}
+                refetch={refetch}
+              ></OrdersRow>
             ))}
           </tbody>
         </table>
       </div>
     </div>
-    );
+  );
 };
 
 export default ManageOrders;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { toast } from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 
 const AddProduct = () => {
   const {
@@ -12,48 +12,47 @@ const AddProduct = () => {
 
   const imageStorageKey = "b983ae1c3629cfc642edcb9df25e58a8";
 
-  const onSubmit = async(data) => {
-      const image = data?.image[0];
-      const formData = new FormData();
-      formData.append('image', image);
-      const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-      fetch(url, {
-          method : "POST",
-          body: formData
-      })
-      .then(res => res.json())
-      .then(result => {
-          if(result?.success){
-              const img = result?.data?.url;
-              const product = {
-                  name : data?.name,
-                  description : data?.description,
-                  price: data?.price,
-                  quantity : data?.quantity,
-                  minquantity : data?.minquantity,
-                  image : img
+  const onSubmit = async (data) => {
+    const image = data?.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result?.success) {
+          const img = result?.data?.url;
+          const product = {
+            name: data?.name,
+            description: data?.description,
+            price: data?.price,
+            quantity: data?.quantity,
+            minquantity: data?.minquantity,
+            image: img,
+          };
+          //   add new product to database
+          fetch("https://glacial-bayou-51669.herokuapp.com/product", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(product),
+          })
+            .then((res) => res.json())
+            .then((added) => {
+              if (added?.insertedId) {
+                toast.success("Successfully added new product.");
+                reset();
+              } else {
+                toast.error("Adding product failed !!");
               }
-            //   add new product to database
-              fetch('http://localhost:5000/product', {
-                  method : "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                  },
-                  body: JSON.stringify(product),
-              })
-              .then(res => res.json())
-              .then(added =>{
-                  if(added?.insertedId){
-                      toast.success("Successfully added new product.")
-                      reset();
-                  }
-                  else{
-                      toast.error("Adding product failed !!")
-                  }
-              })
-          }
-      })
+            });
+        }
+      });
   };
 
   return (

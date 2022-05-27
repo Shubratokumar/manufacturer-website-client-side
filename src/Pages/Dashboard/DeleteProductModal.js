@@ -5,7 +5,7 @@ const DeleteProductModal = ({ deleteProduct, refetch, setDeleteProduct }) => {
   const { _id, name } = deleteProduct;
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://glacial-bayou-51669.herokuapp.com/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

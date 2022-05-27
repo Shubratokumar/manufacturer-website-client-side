@@ -11,12 +11,15 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
 
   const { data: orders, isLoading } = useQuery("order", () =>
-    fetch(`http://localhost:5000/order?userEmail=${user?.email}`, {
-      headers: {
-        method: "GET",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
+    fetch(
+      `https://glacial-bayou-51669.herokuapp.com/order?userEmail=${user?.email}`,
+      {
+        headers: {
+          method: "GET",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => {
       if (res.status === 401 || res.status === 403) {
         toast.error(`${res.statusText}`);
         localStorage.removeItem("accessToken");
@@ -63,11 +66,13 @@ const MyOrders = () => {
                     {order.price && order.paid && (
                       <div>
                         <p>
-                          <span className="btn btn-xs btn-warning">Pending</span>
+                          <span className="btn btn-xs btn-warning">
+                            Pending
+                          </span>
                         </p>
                         <p>
                           {" "}
-                          Transaction id : 
+                          Transaction id :
                           <span className="text-success">
                             {order.transactionId}
                           </span>
@@ -75,7 +80,13 @@ const MyOrders = () => {
                       </div>
                     )}
                   </td>
-                  <td>{<button className="btn btn-xs btn-error">Cancel Order</button>}</td>
+                  <td>
+                    {
+                      <button className="btn btn-xs btn-error">
+                        Cancel Order
+                      </button>
+                    }
+                  </td>
                 </tr>
               </>
             ))}
