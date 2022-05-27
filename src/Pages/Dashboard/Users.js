@@ -24,6 +24,9 @@ const Users = () => {
   return (
     <div>
       <div className="overflow-x-auto">
+      <h3 className="text-2xl text-center font-semibold text-secondary mb-2">
+        Manage Users
+      </h3>
         <table className="table table-normal w-full">
           <thead>
             <tr>
