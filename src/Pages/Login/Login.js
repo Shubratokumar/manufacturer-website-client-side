@@ -1,67 +1,74 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import auth from './../../firebase.init';
-import Loading from './../Shared/Loading';
+import { Link, useLocation } from "react-router-dom";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import auth from "./../../firebase.init";
+import Loading from "./../Shared/Loading";
 import toast from "react-hot-toast";
-import { useNavigate } from 'react-router-dom';
-import useToken from './../../hooks/useToken';
+import { useNavigate } from "react-router-dom";
+import useToken from "./../../hooks/useToken";
 
 const Login = () => {
-    const [ email,setEmail ] = useState(" ");
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const [token] = useToken(user || gUser);
+  const [email, setEmail] = useState(" ");
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [token] = useToken(user || gUser);
 
-    const navigate = useNavigate();
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
-    const handleEmail = e =>{
-        setEmail(e.target.vaule);
+  const handleEmail = (e) => {
+    setEmail(e.target.vaule);
+  };
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
+
+  let signInError;
+  if (error || gError) {
+    signInError = (
+      <p className="text-red-500 pb-3">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+
+  if (loading || gLoading) {
+    return <Loading></Loading>;
+  }
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+  };
+  const resetPassword = async () => {
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("Email Sent successfully !!!");
+    } else {
+      toast.error("Enter Your Email First !!!");
     }
-    
-    if(token){
-        navigate(from, { replace: true });
-    }
-
-    let signInError;
-    if(error || gError){
-        signInError = <p className="text-red-500 pb-3"><small>{error?.message || gError?.message}</small></p>
-      }
-    
-      if( loading || gLoading){
-          return <Loading></Loading>
-    
-      }
-    const onSubmit = data =>{
-        signInWithEmailAndPassword(data.email, data.password)
-
-    } 
-    const resetPassword = async() =>{
-        if(email){
-          await sendPasswordResetEmail(email)
-          toast.success("Email Sent successfully !!!")
-        }
-        else{
-          toast.error("Enter Your Email First !!!")
-        }
-      }
+  };
 
   return (
-    <div class="hero h-screen bg-base-200" >
-        <div class="card w-96  shadow-2xl bg-base-100 px-5">
-          <div class="card-body">
-            <h2 className="text-center text-2xl font-normal text-primary">Login</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="hero h-screen bg-base-200">
+      <div className="card w-96  shadow-2xl bg-base-100 px-5">
+        <div className="card-body">
+          <h2 className="text-center text-2xl font-normal text-primary">
+            Login
+          </h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="text-sm">Email</span>
@@ -129,17 +136,36 @@ const Login = () => {
               </label>
             </div>
             {signInError}
-            <input className="btn btn-primary w-full text-white text-base font-normal" type="submit" value="Login" />
+            <input
+              className="btn btn-primary w-full text-white text-base font-normal"
+              type="submit"
+              value="Login"
+            />
           </form>
-          <p className=" text-center text-xs text-black">Forgot Password ? 
-            <button onClick={resetPassword} className="btn btn-link text-xs font-normal text-secondary">Reset Password</button></p>
-          <p className="text-sm text-center">New to Universal Electronics ? <Link to="/signup"><span className="text-info">Create New Account</span></Link></p>
+          <p className=" text-center text-xs text-black">
+            Forgot Password ?
+            <button
+              onClick={resetPassword}
+              className="btn btn-link text-xs font-normal text-secondary"
+            >
+              Reset Password
+            </button>
+          </p>
+          <p className="text-sm text-center">
+            New to Universal Electronics ?{" "}
+            <Link to="/signup">
+              <span className="text-info">Create New Account</span>
+            </Link>
+          </p>
           <div className="divider">OR</div>
-          <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-primary">
+          <button
+            onClick={() => signInWithGoogle()}
+            className="btn btn-outline btn-primary"
+          >
             CONTINUE WITH GOOGLE
           </button>
-          </div>
         </div>
+      </div>
     </div>
   );
 };

@@ -77,93 +77,91 @@ const Purchase = () => {
     }
   };
   return (
-    <div>
-      <div class="hero min-h-screen bg-base-200 py-20">
-        <div class="hero-content flex-col lg:flex-row">
-          <div class="card max-w-md lg:max-w-lg  bg-base-100 shadow-xl">
-            <figure class="px-5 pt-5">
-              <img src={image} alt="product" class="rounded-xl" />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title">{name}</h2>
-              <p className="text-xl italic">ID : {id}</p>
-              <hr />
-              <p className="text-sm">{description}</p>
-              <hr />
-              <p>
-                Minimum Order :{" "}
-                <span className="text-primary">{minquantity}</span>{" "}
-              </p>
-              <p>
-                Available In Stock :{" "}
-                <span className="text-primary">{product?.quantity}</span>{" "}
-              </p>
-              <p className="font-bold">
-                Price : <span className="text-primary">$ {price}.00</span>{" "}
-              </p>
-            </div>
+    <div className="px-20 bg-blue-50">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-items-center content-center py-10">
+        <div className="card w-full bg-base-100 shadow-xl p-10">
+          <figure className="px-5 pt-5">
+            <img src={image} alt="product" className="rounded-xl" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{name}</h2>
+            <p className="text-xl italic">ID : {id}</p>
+            <hr />
+            <p className="text-sm">{description}</p>
+            <hr />
+            <p>
+              Minimum Order :{" "}
+              <span className="text-primary">{minquantity}</span>{" "}
+            </p>
+            <p>
+              Available In Stock :{" "}
+              <span className="text-primary">{product?.quantity}</span>{" "}
+            </p>
+            <p className="font-bold">
+              Price : <span className="text-primary">$ {price}.00</span>{" "}
+            </p>
           </div>
+        </div>
 
-          <div class="card  max-w-md lg:max-w-lg shadow-2xl bg-base-100 ">
-            <div class="card-body">
-              <h2 className=" text-2xl font-normal text-center my-2">
-                Purchase Now{" "}
-              </h2>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="form-control w-full max-w-md py-2">
-                  <input
-                    {...register("name")}
-                    name="name"
-                    type="text"
-                    disabled
-                    value={user?.displayName}
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                </div>
-                <div className="form-control w-full max-w-xs ">
-                  <input
-                    {...register("email")}
-                    name="email"
-                    type="email"
-                    disabled
-                    value={user?.email}
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                </div>
-                <div className="form-control w-full max-w-xs py-2">
-                  <input
-                    {...register("address")}
-                    type="text"
-                    name="address"
-                    placeholder="Your Address"
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                </div>
-                <div className="form-control w-full max-w-xs">
-                  <input
-                    {...register("number")}
-                    type="number"
-                    name="number"
-                    placeholder="Phone Number"
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                </div>
-                <div className="form-control w-full max-w-xs py-2">
-                  <input
-                    {...register("quantity")}
-                    type="number"
-                    name="quantity"
-                    placeholder={`Minimum order : ${minquantity}`}
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                </div>
+        <div className="card w-full bg-base-100 shadow-xl p-10">
+          <div className="card-body">
+            <h2 className=" text-2xl font-normal text-center my-2">
+              Purchase Now{" "}
+            </h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-control w-full max-w-md py-2">
                 <input
-                  className="btn btn-primary w-full text-white text-base font-normal"
-                  type="submit"
-                  value="Order Now"
+                  {...register("name")}
+                  name="name"
+                  type="text"
+                  disabled
+                  value={user?.displayName}
+                  className="input input-bordered w-full max-w-xs"
                 />
-              </form>
-            </div>
+              </div>
+              <div className="form-control w-full max-w-xs ">
+                <input
+                  {...register("email")}
+                  name="email"
+                  type="email"
+                  disabled
+                  value={user?.email}
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <div className="form-control w-full max-w-xs py-2">
+                <input
+                  {...register("address")}
+                  type="text"
+                  name="address"
+                  placeholder="Your Address"
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <div className="form-control w-full max-w-xs">
+                <input
+                  {...register("number")}
+                  type="number"
+                  name="number"
+                  placeholder="Phone Number"
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <div className="form-control w-full max-w-xs py-2">
+                <input
+                  {...register("quantity")}
+                  type="number"
+                  name="quantity"
+                  placeholder={`Minimum order : ${minquantity}`}
+                  className="input input-bordered w-full max-w-xs"
+                />
+              </div>
+              <input
+                className="btn btn-primary w-full text-white text-base font-normal"
+                type="submit"
+                value="Order Now"
+              />
+            </form>
           </div>
         </div>
       </div>

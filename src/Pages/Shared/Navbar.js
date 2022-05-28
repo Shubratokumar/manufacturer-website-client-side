@@ -1,25 +1,25 @@
 import React from "react";
 import { GiGears } from "react-icons/gi";
 import { NavLink } from "react-router-dom";
-import auth from './../../firebase.init';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { signOut } from 'firebase/auth';
-import { toast } from 'react-hot-toast';
-import { AiOutlineMenuFold } from 'react-icons/ai';
+import auth from "./../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { toast } from "react-hot-toast";
+import { AiOutlineMenuFold } from "react-icons/ai";
 
 const Navbar = () => {
-    const [user] = useAuthState(auth);
-    const logout = () =>{
-      signOut(auth);
-      toast.success("Successfully Logout!!!", {
-        duration: 3000,
-        style: {
-          background: "black",
-          color: "white",
-        },
-      });
-      localStorage.removeItem('accessToken');
-    }
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    toast.success("Successfully Logout!!!", {
+      duration: 3000,
+      style: {
+        background: "black",
+        color: "white",
+      },
+    });
+    localStorage.removeItem("accessToken");
+  };
   const menuItems = (
     <>
       <li>
@@ -32,21 +32,24 @@ const Navbar = () => {
           Blogs
         </NavLink>
       </li>
-      {user?.uid && (<>
-            <li>
-              <NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink>
-            </li>
-            <li>
-              <NavLink className="rounded-lg" to="/portfolio">
-                My Portfolio
-              </NavLink>
-            </li>
-            <li>
-                <p className="  px-2" to="">
-                  {user?.displayName ? user?.displayName : ""}
-                </p>
-            </li>
-      </>
+      {user?.uid && (
+        <>
+          <li>
+            <NavLink className="rounded-lg" to="/dashboard">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="rounded-lg" to="/portfolio">
+              My Portfolio
+            </NavLink>
+          </li>
+          <li>
+            <p className="  px-2" to="">
+              {user?.displayName ? user?.displayName : ""}
+            </p>
+          </li>
+        </>
       )}
       <li>
         {user?.uid ? (
@@ -64,13 +67,13 @@ const Navbar = () => {
     </>
   );
   return (
-    <div class="navbar bg-base-100 shadow z-20 sticky top-0 lg:px-20">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <label tabindex="0" class="btn btn-ghost lg:hidden">
+    <div className="navbar bg-base-100 shadow z-20 sticky top-0 lg:px-20">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabindex="0" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -85,21 +88,24 @@ const Navbar = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-x-2"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 gap-x-2"
           >
             {menuItems}
           </ul>
         </div>
-        <p class="normal-case text-primary">
+        <p className="normal-case text-primary">
           <GiGears className="text-5xl" />
         </p>
       </div>
-      <div class="navbar-end hidden lg:flex">
-        <ul class="menu menu-horizontal p-0 gap-x-2">{menuItems}</ul>
+      <div className="navbar-end hidden lg:flex">
+        <ul className="menu menu-horizontal p-0 gap-x-2">{menuItems}</ul>
       </div>
       <div className="navbar-end lg:hidden">
-        <label htmlFor="dashboard-slider" className="btn btn-ghost  drawer-button text-xl">
-          <AiOutlineMenuFold/>
+        <label
+          htmlFor="dashboard-slider"
+          className="btn btn-ghost  drawer-button text-xl"
+        >
+          <AiOutlineMenuFold />
         </label>
       </div>
     </div>

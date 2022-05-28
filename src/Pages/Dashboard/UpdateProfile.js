@@ -41,8 +41,8 @@ const UpdateProfile = ({ profileUser, refetch }) => {
       <h2 className="text-2xl uppercase text-secondary text-center">
         Update Profile
       </h2>
-      <div class="flex mt-6 justify-center mb-4">
-        <div class="w-60 h-1 rounded-full bg-primary inline-flex"></div>
+      <div className="flex mt-6 justify-center mb-4">
+        <div className="w-60 h-1 rounded-full bg-primary inline-flex"></div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full max-w-sm">
