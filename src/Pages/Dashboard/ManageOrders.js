@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import OrdersRow from "./OrdersRow";
 import Loading from "./../Shared/Loading";
 import { useQuery } from "react-query";
+import CancelOrderModal from "./CancelOrderModal";
 
 const ManageOrders = () => {
+  const [deleteOrder, setDeleteOrder] = useState(null);
   const {
     data: orders,
     refetch,
@@ -49,11 +51,19 @@ const ManageOrders = () => {
                 key={order._id}
                 index={index}
                 refetch={refetch}
+                setDeleteOrder={setDeleteOrder}
               ></OrdersRow>
             ))}
           </tbody>
         </table>
       </div>
+      {
+       deleteOrder && <CancelOrderModal 
+        deleteOrder={deleteOrder}
+        refetch={refetch}
+        setDeleteOrder={setDeleteOrder}
+        ></CancelOrderModal>
+      }
     </div>
   );
 };

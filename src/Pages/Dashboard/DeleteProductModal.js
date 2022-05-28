@@ -12,7 +12,7 @@ const DeleteProductModal = ({ deleteProduct, refetch, setDeleteProduct }) => {
       .then((data) => {
         console.log(data);
         if (data?.deletedCount) {
-          toast.success(`Delete ${name} successfully.`);
+          toast.success(`Deleted ${name} successfully.`);
           setDeleteProduct(null);
           refetch();
         } else {

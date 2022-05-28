@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from 'react-hot-toast';
 
-const OrdersRow = ({order, index, refetch}) => {
+const OrdersRow = ({order, index, refetch, setDeleteOrder}) => {
     const {_id, name, userEmail, orderQuantity, price, phoneNumber, userName, paid, shipped} = order;
 
     const handleUpdateOrder = id =>{
@@ -53,9 +53,9 @@ const OrdersRow = ({order, index, refetch}) => {
       </td>
       <td>
       {        
-          <button className="btn btn-xs btn-error" disabled={paid && shipped}>
+          <label onClick={()=>setDeleteOrder(order)} for="delete-order-modal" className="btn btn-xs btn-error" disabled={paid && !shipped}>
             Cancel Order
-          </button>
+          </label>
       }
       </td>
     </tr>
