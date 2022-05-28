@@ -33,7 +33,7 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/manageorders">Manage Orders</NavLink></li>
                         </>
                     }
-                    <li><NavLink to="/dashboard/profile">My Profile</NavLink></li>
+                    <li><NavLink to="/dashboard/profile/">My Profile</NavLink></li>
                     
                 </ul>
             

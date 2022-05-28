@@ -12,7 +12,7 @@ const Purchase = () => {
   const { name, image, price, description, minquantity } = product;
   const [user, loading] = useAuthState(auth);
   const { id } = useParams();
-  const { register, handleSubmit } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
   if (loading) {
     return <Loading></Loading>;
@@ -67,6 +67,7 @@ const Purchase = () => {
             toast.success(
               `Your order for ${name} is confirmed. Total ${data.quantity} pieces.`
             );
+            reset();
           }
         });
     } else if (inputQuantity < minquantity) {

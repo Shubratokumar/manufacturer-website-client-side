@@ -20,6 +20,7 @@ import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import Payment from './Pages/Dashboard/Payment';
+import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path="orders" element={<MyOrders />} />
           <Route path="profile" element={<MyProfile/>} />
           <Route path="review" element={<AddAReview />} />
+          <Route path="update/:email" element={<UpdateProfile/>} />
           <Route path="payment/:id" element={<Payment />} />
           <Route path="users" 
           element={

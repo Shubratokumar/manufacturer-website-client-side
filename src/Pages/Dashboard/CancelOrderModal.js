@@ -1,11 +1,11 @@
-import React from 'react';
-import { toast } from 'react-hot-toast';
+import React from "react";
+import { toast } from "react-hot-toast";
 
-const CancelOrderModal = ({deleteOrder, setDeleteOrder, refetch}) => {
-    const { _id, name } = deleteOrder;
+const CancelOrderModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
+  const { _id, name } = deleteOrder;
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/order${id}`, {
+    fetch(`https://glacial-bayou-51669.herokuapp.com/order/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,13 +23,9 @@ const CancelOrderModal = ({deleteOrder, setDeleteOrder, refetch}) => {
         }
       });
   };
-    return (
-        <div>
-      <input
-        type="checkbox"
-        id="delete-order-modal"
-        className="modal-toggle"
-      />
+  return (
+    <div>
+      <input type="checkbox" id="delete-order-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg text-red-500">
@@ -53,7 +49,7 @@ const CancelOrderModal = ({deleteOrder, setDeleteOrder, refetch}) => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default CancelOrderModal;
