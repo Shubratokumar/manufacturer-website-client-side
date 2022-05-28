@@ -18,7 +18,9 @@ const ManageOrders = () => {
   );
   if (isLoading) {
     return <Loading />;
-  }
+  };
+
+  
   return (
     <div className="mb-3">
       <h3 className="text-2xl text-center font-semibold text-secondary mb-2">

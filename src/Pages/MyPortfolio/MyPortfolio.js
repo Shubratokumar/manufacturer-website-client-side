@@ -1,6 +1,5 @@
 import React from "react";
 import profilePic from "../../../src/Assets/Images/ProfilePhoto1.jpg";
-import { Link } from 'react-router-dom';
 
 const MyPortfolio = () => {
   return (

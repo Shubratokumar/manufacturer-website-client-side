@@ -42,7 +42,6 @@ const MyOrders = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Payment</th>
-              <th>Order Status</th>
               <th>Cancel Order</th>
             </tr>
           </thead>
@@ -63,7 +62,7 @@ const MyOrders = () => {
                         Pay
                       </Link>
                     )}
-                    {order.price && order.paid && (
+                    {order.paid && !order.shipped && (
                       <div>
                         <p>
                           <span className="btn btn-xs btn-warning">
@@ -79,10 +78,13 @@ const MyOrders = () => {
                         </p>
                       </div>
                     )}
-                  </td>
+                    {
+                         order.paid && order.shipped &&( <button className="btn btn-xs btn-success">shipped</button>)
+                     }
+                </td>
                   <td>
                     {
-                      <button className="btn btn-xs btn-error">
+                      <button disabled={order.paid && order.shipped} className="btn btn-xs btn-error">
                         Cancel Order
                       </button>
                     }
