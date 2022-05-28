@@ -32,7 +32,7 @@ const MyOrders = () => {
     return <Loading />;
   }
   return (
-    <div>
+    <div className="mb-4">
       <div className="overflow-x-auto">
         <table className="table table-normal w-full">
           <thead>

@@ -1,7 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Loading from "./../Shared/Loading";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
@@ -9,7 +8,6 @@ const CheckoutForm = ({ order }) => {
   const [cardError, setCardError] = useState(" ");
   const [transactionId, setTransactionId] = useState(" ");
   const [cardSuccess, setCardSuccess] = useState(" ");
-  const [loading, setLoading] = useState(false);
   const [clientSecret, setClientSecret] = useState(" ");
 
   const { _id, price, userName, userEmail } = order;
@@ -31,9 +29,7 @@ const CheckoutForm = ({ order }) => {
       });
   }, [price]);
 
-  if (loading) {
-    return <Loading />;
-  }
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -63,7 +59,6 @@ const CheckoutForm = ({ order }) => {
     }
 
     setCardSuccess(" ");
-    setLoading(true);
 
     //   confirm card payment
     const { paymentIntent, error: intentError } =
@@ -78,11 +73,10 @@ const CheckoutForm = ({ order }) => {
       });
     if (intentError) {
       setCardError(intentError?.message);
-      setLoading(false);
     } else {
       setCardError(" ");
       setTransactionId(paymentIntent?.id);
-      setCardSuccess("Congrats! Payment done.");
+      setCardSuccess("Congrats! Payment done. Your product will be shipped soon.");
 
       //   update order
       const payment = {
@@ -101,7 +95,6 @@ const CheckoutForm = ({ order }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setLoading(false);
         });
     }
   };
@@ -127,7 +120,7 @@ const CheckoutForm = ({ order }) => {
       <button
         className="btn btn-xs btn-success my-5"
         type="submit"
-        disabled={!stripe || !clientSecret}
+        disabled={!stripe || !clientSecret }
       >
         Pay
       </button>

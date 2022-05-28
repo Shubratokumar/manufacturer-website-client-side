@@ -37,6 +37,7 @@ const ManageOrders = () => {
               <th>Contact Number</th>
               <th>Payment Status</th>
               <th>Product Status</th>
+              <th>Cancel Order</th>
             </tr>
           </thead>
           <tbody>
