@@ -56,8 +56,8 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 ">
-      <div className="card w-96 bg-base-200 shadow-xl ">
+    <div className="min-h-screen p-2 lg:p-6 ">
+      <div className="card w-full bg-base-200 shadow-xl ">
         <div className="card-body items-center">
           <h2 className="text-2xl">Add a New Product</h2>
           <form onSubmit={handleSubmit(onSubmit)}>

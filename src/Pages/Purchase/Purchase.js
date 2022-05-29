@@ -77,7 +77,7 @@ const Purchase = () => {
     }
   };
   return (
-    <div className="px-20 bg-blue-50">
+    <div className="px-2 lg:px-20 bg-blue-50">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-items-center content-center py-10">
         <div className="card w-full bg-base-100 shadow-xl p-10">
           <figure className="px-5 pt-5">

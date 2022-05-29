@@ -3,7 +3,7 @@ import profilePic from "../../../src/Assets/Images/ProfilePhoto1.jpg";
 
 const MyPortfolio = () => {
   return (
-    <div className="px-20 bg-blue-50">
+    <div className="px-2 lg:px-20 bg-blue-50">
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center content-center py-10">
           <div>

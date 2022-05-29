@@ -46,8 +46,8 @@ const AddAReview = () => {
     }
   };
   return (
-    <div className="h-screen p-3">
-      <div className="card w-96  shadow-2xl bg-base-200 px-5">
+    <div className="h-screen p-2 lg:p-6">
+      <div className="card w-full  shadow-2xl bg-base-200 px-5">
         <div className="card-body">
           <h2 className="text-center text-2xl font-normal text-primary">
             Add A Review

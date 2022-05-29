@@ -12,7 +12,7 @@ const Banner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse text-neutral-content">
         <img
           src={workshop}
-          className="max-w-sm lg:max-w-lg rounded-lg shadow-2xl"
+          className="w-screen lg:max-w-lg rounded-lg shadow-2xl"
           alt="workshop"
         />
         <div>
