@@ -6,8 +6,8 @@ const Products = () => {
   const [products] = useProducts();
 
   return (
-    <section className="bg-blue-50 p-12">
-      <div className="text-center mb-10">
+    <section className="bg-blue-50 py-20 p-12">
+      <div className="text-center ">
         <div>
           <h2 className="text-3xl font-medium title-font text-gray-900 mb-6 text-center uppercase">Featured Products</h2>
           <div className="flex  justify-center">

@@ -18,10 +18,10 @@ const useToken = (user) => {
         },
         body: JSON.stringify(currentUser),
       })
-        .then((res) => {res.json();
-        })
+        .then((res) => res.json())
         .then((data) => {
-          const accessToken = data.token;
+          console.log(data)
+          const accessToken = data?.token;
           localStorage.setItem("accessToken", accessToken);
           setToken(accessToken);
         });

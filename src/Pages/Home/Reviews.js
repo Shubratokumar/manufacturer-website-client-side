@@ -9,8 +9,8 @@ const Reviews = () => {
     }).then((res) => res.json())
   );
   return (
-    <section className="bg-blue-50 p-12">
-      <div className="text-center mb-20">
+    <section className="bg-blue-50 py-20 p-12">
+      <div className="text-center">
         <h1 className="text-3xl font-medium title-font text-gray-900 mb-6 text-center uppercase">
           Testimonials
         </h1>
