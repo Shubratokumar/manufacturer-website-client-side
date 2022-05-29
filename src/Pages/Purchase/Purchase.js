@@ -116,48 +116,48 @@ const Purchase = () => {
                   type="text"
                   disabled
                   value={user?.displayName}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-sm"
                 />
               </div>
-              <div className="form-control w-full max-w-xs ">
+              <div className="form-control w-full max-w-sm ">
                 <input
                   {...register("email")}
                   name="email"
                   type="email"
                   disabled
                   value={user?.email}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-sm"
                 />
               </div>
-              <div className="form-control w-full max-w-xs py-2">
+              <div className="form-control w-full max-w-sm py-2">
                 <input
                   {...register("address")}
                   type="text"
                   name="address"
                   placeholder="Your Address"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-sm"
                 />
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full max-w-sm">
                 <input
                   {...register("number")}
                   type="number"
                   name="number"
                   placeholder="Phone Number"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-sm"
                 />
               </div>
-              <div className="form-control w-full max-w-xs py-2">
+              <div className="form-control w-full max-w-sm py-2">
                 <input
                   {...register("quantity")}
                   type="number"
                   name="quantity"
                   placeholder={`Minimum order : ${minquantity}`}
-                  className="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-sm"
                 />
               </div>
               <input
-                className="btn btn-primary w-full text-white text-base font-normal"
+                className="btn btn-primary w-full max-w-sm text-white text-base font-normal"
                 type="submit"
                 value="Order Now"
               />

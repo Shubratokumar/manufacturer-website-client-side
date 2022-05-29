@@ -10,7 +10,7 @@ import auth from "./../../firebase.init";
 import Loading from "./../Shared/Loading";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import useToken from "./../../hooks/useToken";
+import useToken from './../../hooks/useToken';
 
 const Login = () => {
   const [email, setEmail] = useState(" ");

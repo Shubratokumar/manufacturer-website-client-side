@@ -6,13 +6,15 @@ import { BiSupport } from "react-icons/bi";
 
 const BusinessSummery = () => {
   return (
-    <section className="px-5 lg:px-20 my-20">
+    <section className="px-5 lg:px-20 pt-12">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-5xl font-bold title-font mb-4 text-gray-900">
+          <h1 className="text-3xl font-medium title-font text-gray-900 mb-6 text-center uppercase">
             Why Choose Us
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base"></p>
+          <div className="flex justify-center">
+            <div className="w-60 h-1 rounded-full bg-primary inline-flex"></div>
+          </div>
         </div>
         <div className="flex flex-wrap -m-4 text-center">
           <div className="p-4 md:w-1/4 sm:w-1/2 w-full">

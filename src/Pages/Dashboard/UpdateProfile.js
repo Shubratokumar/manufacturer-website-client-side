@@ -18,7 +18,7 @@ const UpdateProfile = ({ profileUser, refetch }) => {
       linkedIn: data.linkedIn,
     };
     //   update user info
-    fetch(`https://glacial-bayou-51669.herokuapp.com/user/${email}`, {
+    fetch(`https://glacial-bayou-51669.herokuapp.com/users/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

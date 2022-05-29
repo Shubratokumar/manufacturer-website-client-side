@@ -10,14 +10,16 @@ const useToken = (user) => {
       name: name,
     };
     if (email) {
-      fetch(`https://glacial-bayou-51669.herokuapp.com/user/${email}`, {
+      const url = `https://glacial-bayou-51669.herokuapp.com/user/${email}`;
+      fetch(url, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(currentUser),
       })
-        .then((res) => res.json())
+        .then((res) => {res.json();
+        })
         .then((data) => {
           const accessToken = data.token;
           localStorage.setItem("accessToken", accessToken);
